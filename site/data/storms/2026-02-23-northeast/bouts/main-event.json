@@ -1,0 +1,335 @@
+{
+ "id": "main-event",
+ "title": "Main event: the full run-up and verification",
+ "verdict": {
+  "title": "Split decision",
+  "text": "Early rounds to Big Gus: his 12z Tuesday run was 84 km from the real low six days out. The steadiest early fighter was the AIFS, which never dropped the storm. Late rounds to Eccy: from 84 hours in he never missed by more than 100 km and finished with the best track and 500 mb scores. Nammy had one great run and three soggy ones."
+ },
+ "lines": [
+  {
+   "round": "Pre-fight",
+   "who": "ref",
+   "screen": "card:gus",
+   "cap": "Tale of the tape \u00b7 GFS",
+   "text": "Ladies and gentlemen, weather geeks of all ages, welcome to the Weatherbots main event! In this corner, running four times a day out of College Park, Maryland: the Global Forecast System, Big Gus!",
+   "note": "The GFS runs at 00, 06, 12 and 18 UTC. Tonight's scoring uses every 00z and 12z run from Feb 17 to Feb 22."
+  },
+  {
+   "who": "ref",
+   "screen": "card:eccy",
+   "cap": "Tale of the tape \u00b7 ECMWF IFS",
+   "text": "In the far corner, flown in from Reading, England: the Integrated Forecast System, Eccy the Euro! Accompanied by his little brother, the AIFS.",
+   "note": "ECMWF's physics model (IFS) and its AI model (AIFS) both publish open data, archived on AWS. Both were scored here."
+  },
+  {
+   "who": "ref",
+   "screen": "card:nammy",
+   "cap": "Tale of the tape \u00b7 NAM",
+   "text": "And the kid who only shows up eighty-four hours before the bell: Little Nammy! Tonight's bout: the Blizzard of 2026. Every number you'll hear tonight comes from the archived model runs.",
+   "note": "Runs were scored against the analyzed surface low at 12z Mon Feb 23 (968.7 mb near 38.9\u00b0N, 70.5\u00b0W), Stage IV precipitation, and NWS climate reports."
+  },
+  {
+   "round": "Round 1 \u00b7 Mon Feb 16 \u2013 Tue Feb 17 \u00b7 a week out",
+   "who": "ref",
+   "screen": "quote:0",
+   "cap": "WPC Extended Forecast Discussion \u00b7 2:56 AM ET Mon Feb 16",
+   "text": "Round one. Monday the sixteenth. Seven days out."
+  },
+  {
+   "who": "gus",
+   "screen": "quote:0",
+   "cap": "WPC Extended Forecast Discussion \u00b7 2:56 AM ET Mon Feb 16",
+   "text": "Read the last line. 'With the GFS strongest with this scenario.' That's WPC, seven days out, talking about me.",
+   "note": "Verbatim from WPC's Extended Forecast Discussion, 2:56 AM EST Mon Feb 16."
+  },
+  {
+   "who": "eccy",
+   "screen": "quote:3",
+   "cap": "WPC Extended Forecast Discussion \u00b7 2:29 PM ET Tue Feb 17",
+   "text": "Strongest is not the same as right. Tuesday afternoon WPC wrote that I had a farther south track with little to no precipitation for the Mid-Atlantic to the Northeast. They wrote it down because they believed it.",
+   "note": "Verbatim from WPC's Extended Forecast Discussion, 2:29 PM EST Tue Feb 17. The current script had wrongly attributed this to NWS New York on Friday."
+  },
+  {
+   "who": "gus",
+   "screen": "rt:2026-02-17T12Z:gfs",
+   "cap": "12z Tue Feb 17 runs vs the analyzed low (dashed) \u00b7 144 h out",
+   "text": "Then let's put your Tuesday run on the screen next to mine. My twelve z run: nine sixty-seven millibars, eighty-four kilometers from where the storm actually was, six days out.",
+   "note": "GFS 12z Feb 17: 966.6 mb minimum, 84 km from the verifying position at 12z Feb 23, 2 mb deeper than analyzed."
+  },
+  {
+   "who": "ref",
+   "screen": "rt:2026-02-17T12Z:ifs",
+   "cap": "12z Tue Feb 17 runs vs the analyzed low (dashed) \u00b7 144 h out",
+   "text": "The judges note Eccy's twelve z run was four hundred thirty kilometers off and twenty millibars too weak.",
+   "note": "ECMWF IFS 12z Feb 17: 430 km off at 12z Feb 23, 20.2 mb too weak."
+  },
+  {
+   "who": "eccy",
+   "screen": "quote:4",
+   "cap": "WPC Extended Forecast Discussion \u00b7 2:29 PM ET Tue Feb 17",
+   "text": "Same discussion. 'The EC-AIFS model though, has been consistent in showing a fairly classic nor'easter.' That's family. That counts.",
+   "note": "Verbatim, same WPC discussion."
+  },
+  {
+   "who": "gus",
+   "screen": "minp:aifs",
+   "cap": "Deepest low in each run \u00b7 analyzed 968 mb",
+   "text": "Your little brother was two hundred forty kilometers off that run.",
+   "note": "AIFS 12z Feb 17: 243 km off, 7 mb too weak."
+  },
+  {
+   "who": "eccy",
+   "screen": "minp:aifs",
+   "cap": "Deepest low in each run \u00b7 analyzed 968 mb",
+   "text": "And every single one of his runs had a storm between nine sixty-eight and nine seventy-five millibars. Look at the purple. He never let it go.",
+   "note": "All twelve AIFS runs: minimum 968\u2013975 mb. The IFS ranged from 967 to 992 mb."
+  },
+  {
+   "who": "nammy",
+   "screen": "range:144",
+   "cap": "Forecast reach \u00b7 storm is 144 h away",
+   "text": "Is it my turn? I can't see that far. My clock only goes to eighty-four hours. Save me a seat.",
+   "note": "The NAM's forecast ends at 84 hours."
+  },
+  {
+   "round": "Round 2 \u00b7 Wed Feb 18 \u2013 Thu Feb 19 \u00b7 the wobble",
+   "who": "ref",
+   "screen": "err:gfs",
+   "cap": "Track miss at 12z Mon Feb 23, by run (km)",
+   "text": "Round two. Wednesday and Thursday. Things get wobbly."
+  },
+  {
+   "who": "eccy",
+   "screen": "err:gfs",
+   "cap": "Track miss at 12z Mon Feb 23, by run (km)",
+   "text": "Your next four runs, Gus. Three twenty-four, two fifty-seven, one fifty, one seventy-three kilometers off. You found the storm on Tuesday and lost its address on Wednesday.",
+   "note": "GFS 00z Feb 18 through 12z Feb 19 missed by 324, 257, 150 and 173 km."
+  },
+  {
+   "who": "gus",
+   "screen": "err:gfs",
+   "cap": "Track miss at 12z Mon Feb 23, by run (km)",
+   "text": "Every one of those runs still bombed it out below nine seventy-five. I never doubted the storm. Just the zip code.",
+   "note": "Those four GFS runs had minimum pressures of 961\u2013974 mb."
+  },
+  {
+   "who": "eccy",
+   "screen": "qpfr:gfs|2026-02-19T12Z:KDCA",
+   "cap": "GFS 12z Thu Feb 19 \u00b7 storm-total liquid vs Stage IV (white tick)",
+   "text": "Thursday afternoon you put three point six five inches of liquid on Washington.",
+   "note": "GFS 12z Feb 19 storm-total liquid at DCA: 3.65 in."
+  },
+  {
+   "who": "ref",
+   "screen": "qpfr:gfs|2026-02-19T12Z:KDCA",
+   "cap": "GFS 12z Thu Feb 19 \u00b7 storm-total liquid vs Stage IV (white tick)",
+   "text": "Washington measured one point zero nine inches of liquid, and National Airport recorded one inch of snow.",
+   "note": "Stage IV 48 h analysis at DCA: 1.09 in. NWS climate report for DCA: 1.0 in of snow. This is the real basis for 'the GFS overdid the Mid-Atlantic.'"
+  },
+  {
+   "who": "gus",
+   "screen": "quote:6",
+   "cap": "WPC Extended Forecast Discussion \u00b7 3:00 PM ET Thu Feb 19",
+   "text": "WPC said I 'turned even more aggressive.' I took that as a compliment."
+  },
+  {
+   "who": "eccy",
+   "screen": "quote:8",
+   "cap": "WPC Extended Forecast Discussion \u00b7 3:00 PM ET Thu Feb 19",
+   "text": "They leaned toward a coastal storm 'but not nearly as aggressive as the GFS solution.' That is not a compliment. That is a restraining order.",
+   "note": "Verbatim, WPC Extended Forecast Discussion, 3:00 PM EST Thu Feb 19."
+  },
+  {
+   "who": "gus",
+   "screen": "z5:ifs|2026-02-19T12Z,gfs|2026-02-19T12Z",
+   "cap": "500 mb at 12z Mon Feb 23 \u00b7 Thursday 12z runs (solid) vs analysis (dashed)",
+   "text": "Fine. Then let's go upstairs. Five hundred millibars. The real closed low bottomed out at five hundred thirteen decameters. Mine, five fourteen. Yours, five thirty.",
+   "note": "Analyzed 500 mb closed-low center at 12z Feb 23: 512.8 dam. GFS 12z Feb 19: 514.3 dam. ECMWF IFS 12z Feb 19: 529.9 dam."
+  },
+  {
+   "who": "gus",
+   "screen": "z5:ifs|2026-02-19T12Z,gfs|2026-02-19T12Z",
+   "cap": "500 mb at 12z Mon Feb 23 \u00b7 Thursday 12z runs (solid) vs analysis (dashed)",
+   "text": "Seventeen decameters too shallow. You never closed it off. No closed low, no bomb.",
+   "note": "Every ECMWF run from 00z Feb 17 through 12z Feb 19 had the closed low 17\u201324 dam too shallow."
+  },
+  {
+   "who": "eccy",
+   "text": "I was building suspense."
+  },
+  {
+   "round": "Round 3 \u00b7 Fri Feb 20 \u00b7 84 hours",
+   "who": "ref",
+   "screen": "rt:2026-02-20T00Z",
+   "cap": "00z Fri Feb 20 runs vs the analyzed low \u00b7 84 h out",
+   "text": "Round three. Friday the twentieth. Eighty-four hours out."
+  },
+  {
+   "who": "eccy",
+   "screen": "rt:2026-02-20T00Z:ifs",
+   "cap": "00z Fri Feb 20 runs vs the analyzed low \u00b7 84 h out",
+   "text": "Zero zero zulu Friday. Sixty-two kilometers off. And from this run on, I never miss by more than a hundred again. That is what locking in looks like.",
+   "note": "ECMWF IFS 00z Feb 20: 62 km. Every IFS run after it stayed within 100 km."
+  },
+  {
+   "who": "gus",
+   "screen": "rt:2026-02-20T00Z:gfs",
+   "cap": "00z Fri Feb 20 runs vs the analyzed low \u00b7 84 h out",
+   "text": "Same cycle, I'm nineteen kilometers off. Nineteen.",
+   "note": "GFS 00z Feb 20: 19 km."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:14",
+   "cap": "WPC Heavy Snow & Icing Discussion \u00b7 4:12 AM ET Fri Feb 20",
+   "text": "Friday morning, WPC's heavy snow desk: 'The preferred track remains with the EC-AIFS.'",
+   "note": "Verbatim, WPC Heavy Snow and Icing Discussion, 4:12 AM EST Fri Feb 20."
+  },
+  {
+   "who": "eccy",
+   "screen": "rt:2026-02-20T12Z:aifs",
+   "cap": "12z Fri Feb 20 runs \u00b7 AIFS 5 km from the verifying low",
+   "text": "Preferred. And his twelve z run that day was five kilometers from the real low. Five.",
+   "note": "AIFS 12z Feb 20: 5 km off, 72 hours out. The best single run of any model at 3 days or longer."
+  },
+  {
+   "who": "nammy",
+   "screen": "range:72",
+   "cap": "Forecast reach \u00b7 storm now 72 h away",
+   "text": "I'M HERE! Eighty-four hours! Let me look! Oh. My first run is a little dry, actually. Give me a cycle.",
+   "note": "NAM 00z Feb 20 (its first run with the storm in range): 160 km off and 1.08 in too dry on average."
+  },
+  {
+   "who": "eccy",
+   "screen": "lineage",
+   "cap": "Where the NAM gets its starting conditions",
+   "text": "The child starts from the same analysis system as Gus. He's Gus with a magnifying glass and a 2017 physics package.",
+   "note": "The NAM is initialized from NCEP's data assimilation system and has been frozen since 2017; the RRFS is slated to replace it."
+  },
+  {
+   "round": "Round 4 \u00b7 Sat Feb 21 \u2013 Sun Feb 22 \u00b7 the kid gets excited",
+   "who": "ref",
+   "screen": "qpfr:nam|2026-02-21T00Z:KPVD",
+   "cap": "NAM 00z Sat Feb 21 \u00b7 storm-total liquid vs Stage IV",
+   "text": "Round four. Saturday. Sixty hours out."
+  },
+  {
+   "who": "nammy",
+   "screen": "qpfr:nam|2026-02-21T00Z:KPVD",
+   "cap": "NAM 00z Sat Feb 21 \u00b7 storm-total liquid vs Stage IV",
+   "text": "Zero zero z Saturday! Thirty-nine kilometers off! Two point two three inches for Providence, and Providence got two point one nine! Somebody write that down!",
+   "note": "NAM 00z Feb 21: 39 km off, Providence 2.23 in vs 2.19 in Stage IV. Its best run."
+  },
+  {
+   "who": "gus",
+   "screen": "rt:2026-02-21T12Z:nam",
+   "cap": "12z Sat Feb 21 runs \u00b7 NAM tucks the low west",
+   "text": "Then twelve z happened.",
+   "note": "NAM 12z Feb 21: 120 km west of the verifying position, 965 mb."
+  },
+  {
+   "who": "nammy",
+   "screen": "qpfr:nam|2026-02-21T12Z:KNYC",
+   "cap": "NAM 12z Sat Feb 21 \u00b7 storm-total liquid vs Stage IV",
+   "text": "Nine sixty-five millibars! Tucked right in! Two point three inches for Central Park! Cold air, heavy precipitation, I get excited!",
+   "note": "NAM 12z Feb 21: Central Park 2.32 in vs 1.98 in observed; 0.79 in too wet on average. Its 00z Feb 22 run was 0.94 in too wet. Over-forecasting precipitation in cold air is the NAM's best-known bias."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:18",
+   "cap": "WPC Heavy Snow & Icing Discussion \u00b7 4:22 AM ET Sat Feb 21",
+   "text": "WPC, Saturday morning: model consensus was still lacking, 'with the zero zero Z GFS still on the west side and stronger.'",
+   "note": "Verbatim, WPC Heavy Snow and Icing Discussion, 4:22 AM EST Sat Feb 21."
+  },
+  {
+   "who": "gus",
+   "text": "West, stronger, and right."
+  },
+  {
+   "who": "eccy",
+   "screen": "err:ifs",
+   "cap": "Track miss at 12z Mon Feb 23, by run (km)",
+   "text": "West, stronger, and seventy-two kilometers off at twelve z. I was thirty-two. Then fourteen on Sunday morning. The late rounds are mine.",
+   "note": "12z Feb 21: GFS 72 km, IFS 32 km. 00z Feb 22: IFS 14 km, GFS 47 km."
+  },
+  {
+   "round": "Round 5 \u00b7 Sun Feb 22 \u2013 Mon Feb 23 \u00b7 verification",
+   "who": "ref",
+   "screen": "rverify",
+   "cap": "Analyzed low track and observed snowfall \u00b7 Feb 22\u201323",
+   "text": "Final round. The verification. The low went from a thousand millibars Sunday afternoon to nine sixty-nine by Monday morning. Thirty-two millibars in eighteen hours. A bomb.",
+   "note": "Analyzed (mean of GFS and ECMWF analyses): 1000.4 mb at 18z Feb 22, 968.7 mb at 12z Feb 23. WPC's 18z surface analysis had 965 mb Monday afternoon."
+  },
+  {
+   "who": "ref",
+   "screen": "rverify",
+   "cap": "Analyzed low track and observed snowfall \u00b7 Feb 22\u201323",
+   "text": "Providence, thirty-seven point nine inches, a record. Islip, twenty-nine. Central Park, nineteen point seven. Boston, seventeen. Washington, one.",
+   "note": "NWS climate reports, Feb 22\u201323 totals. Providence's 37.9 in broke its single-storm record (Blizzard of '78: 28.6 in)."
+  },
+  {
+   "who": "gus",
+   "screen": "band:0",
+   "cap": "Scorecard \u00b7 days 5\u20137 (96\u2013156 h)",
+   "text": "Days five through seven: I averaged one eighty-four kilometers off. You averaged three ninety-seven.",
+   "note": "Mean track miss at 12z Feb 23 for runs 96\u2013156 h out: GFS 184 km, IFS 397 km, AIFS 169 km."
+  },
+  {
+   "who": "eccy",
+   "screen": "band:0",
+   "cap": "Scorecard \u00b7 days 5\u20137 (96\u2013156 h)",
+   "text": "And my little brother averaged one sixty-nine. Better than you, Gus."
+  },
+  {
+   "who": "gus",
+   "text": "He's not even in the ring!"
+  },
+  {
+   "who": "eccy",
+   "screen": "band:2",
+   "cap": "Scorecard \u00b7 final 48 hours (24\u201348 h)",
+   "text": "Final forty-eight hours: twenty-seven kilometers, best in the ring. And my last run had the smallest five hundred millibar error of anybody. Four meters.",
+   "note": "Final 48 h means: IFS 27 km, GFS 42, AIFS 53, NAM 91. IFS 12z Feb 22 run: 4 m RMS 500 mb error over the East at 12z Feb 23, smallest of the four."
+  },
+  {
+   "who": "eccy",
+   "screen": "qpfr:ifs|2026-02-22T00Z:KPVD",
+   "cap": "ECMWF 00z Sun Feb 22 \u00b7 storm-total liquid vs Stage IV",
+   "text": "I will concede one thing. I was still dry in Providence at the end. One seventy-seven against two nineteen.",
+   "note": "IFS 00z Feb 22: Providence 1.77 in vs 2.19 in. The ECMWF's dry bias in heavy precipitation, at the heaviest spot."
+  },
+  {
+   "who": "nammy",
+   "screen": "band:2",
+   "cap": "Scorecard \u00b7 final 48 hours (24\u201348 h)",
+   "text": "Final forty-eight: I was the wettest! ...That's bad, isn't it."
+  },
+  {
+   "round": "Decision",
+   "who": "ref",
+   "screen": "matrix",
+   "cap": "Every run, scored \u00b7 track miss at 12z Mon Feb 23 (km)",
+   "text": "Judges' decision. Early rounds to Big Gus, for the best call six days out. Late rounds to Eccy, for locking in at eighty-four hours and finishing best. Steadiest fighter all week: the AIFS, who wasn't even on the card. Split decision!",
+   "note": "Green under 75 km, yellow 75\u2013150, orange 150\u2013300, red over 300."
+  },
+  {
+   "who": "nammy",
+   "text": "And me?"
+  },
+  {
+   "who": "ref",
+   "text": "One great run and three soggy ones. Participation ribbon."
+  },
+  {
+   "who": "ref",
+   "screen": "lesson",
+   "cap": "What the Blizzard of 2026 taught the judges",
+   "text": "The lesson, weather geeks: 'Euro is king' describes a season, not a storm. When a model holds a solution run after run, and the AI guidance agrees, that consistency deserves weight. Good night, and check the ensembles.",
+   "note": "Takeaways from scoring all 42 runs."
+  }
+ ],
+ "init": null,
+ "mode": "hand",
+ "storm": "2026-02-23-northeast",
+ "written": "2026-10-07T00Z"
+}

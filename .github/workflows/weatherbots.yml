@@ -1,0 +1,94 @@
+name: Weatherbots
+
+# Runs after the 00z and 12z model cycles are published (ECMWF open data is the last to land, ~07:30z / ~19:30z).
+on:
+  schedule:
+    - cron: "40 8 * * *"
+    - cron: "40 20 * * *"
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "What to run"
+        type: choice
+        options: [cycle, rewrite-bout, open-storm, deploy-only]
+        default: cycle
+      storm:
+        description: "Storm id (for rewrite-bout), e.g. 2026-02-23-northeast"
+        required: false
+      args:
+        description: "Extra arguments. rewrite-bout: --init 2026-02-20T00Z or --final. open-storm: --target ... --bbox ... --start ... --end ... --region ..."
+        required: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: weatherbots
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Restore downloaded model fields
+        uses: actions/cache@v4
+        with:
+          path: work
+          key: wb-work-${{ github.run_id }}
+          restore-keys: wb-work-
+
+      - name: Run Weatherbots
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CMD: ${{ inputs.command || 'cycle' }}
+          STORM: ${{ inputs.storm }}
+          ARGS: ${{ inputs.args }}
+        run: |
+          case "$CMD" in
+            cycle)        python run.py cycle ;;
+            rewrite-bout) python run.py bout --storm "$STORM" $ARGS ;;
+            open-storm)   python run.py open $ARGS && python run.py cycle --no-wpc ;;
+            deploy-only)  echo "Deploying the site as-is" ;;
+          esac
+
+      - name: Weekly heartbeat (keeps the schedule active through summer)
+        if: github.event_name == 'schedule'
+        run: |
+          if [ "$(date -u +%u)" = "1" ] && [ "$(date -u +%H)" = "08" ]; then date -u +%FT%TZ > site/data/heartbeat.txt; fi
+
+      - name: Save storm data to the repository
+        run: |
+          git config user.name "weatherbots"
+          git config user.email "weatherbots@users.noreply.github.com"
+          git add site/data
+          if ! git diff --cached --quiet; then
+            git commit -m "Weatherbots update $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --autostash
+            git push
+          fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: run
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

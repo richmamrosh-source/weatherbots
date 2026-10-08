@@ -1,0 +1,20 @@
+{
+ "updated": "2026-10-08T01Z",
+ "storms": [
+  {
+   "id": "2026-02-23-northeast",
+   "name": "Blizzard of 2026",
+   "status": "verified",
+   "target": "2026-02-23T12Z",
+   "region": "Northeast",
+   "bouts": [
+    {
+     "id": "main-event",
+     "title": "Main event: the full run-up and verification",
+     "init": null,
+     "mode": "hand"
+    }
+   ]
+  }
+ ]
+}

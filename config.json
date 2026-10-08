@@ -1,0 +1,16 @@
+{
+  "model": "claude-opus-5-5",
+  "max_output_tokens": 9000,
+  "bout_lines": [24, 34],
+  "wpc": {
+    "threshold_inches": 8,
+    "prob_pct": 40,
+    "min_area_km2": 40000,
+    "merge_hours": 48,
+    "merge_km": 1200
+  },
+  "backfill_days": 6.5,
+  "close_after_hours": 30,
+  "models": ["gfs", "ifs", "aifs", "nam"],
+  "stations_per_storm": 10
+}
