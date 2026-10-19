@@ -682,7 +682,8 @@ function afdScreen(){
   let s=`<rect width="756" height="276" fill="#06110a"/>`; lines.forEach((l,i)=>{ s+=txt(22,48+i*16,l,{size:12,fill: i===4?"#ffd23f": i===6?"#b48cff": i===5?"#f2c230":"#8fe8a8",cls:"mono"}); }); s+=`<rect x="22" y="${48+lines.length*16-2}" width="9" height="13" fill="#8fe8a8"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>`; return s;
 }
 function cardScreen(key){
-  const d={gus:["BIG GUS","Global Forecast System","~13 km global · FV3","384 h · 4 runs/day","Habit: NW shift, spin-up, flip-flops",C.gus],eccy:["ECCY THE EURO","ECMWF IFS","~9 km global","240 h · 00z / 12z","Habit: dry in big rain, drizzle elsewhere",C.eccy],nammy:["LITTLE NAMMY","North American Mesoscale","12 km + 3 km nest","84 h · 4 runs/day","Habit: snow goes BRRRR in cold air",C.nammy]}[key];
+  const d={gus:["BIG GUS","Global Forecast System","~13 km global · FV3","384 h · 4 runs/day","Habit: NW shift, spin-up, flip-flops",C.gus],eccy:["ECCY THE EURO","ECMWF IFS","~9 km global","240 h · 00z / 12z","Habit: dry in big rain, drizzle elsewhere",C.eccy],nammy:["LITTLE NAMMY","North American Mesoscale","12 km + 3 km nest","84 h · 4 runs/day","Habit: snow goes BRRRR in cold air",C.nammy]}[key].slice();
+  const o=(CASE.cards||{})[key]; if(o){ if(o.grid) d[2]=o.grid; if(o.reach) d[3]=o.reach; if(o.habit) d[4]=o.habit; }
   let s=`<rect width="756" height="276" fill="${C.sea}"/><rect x="0" y="26" width="12" height="224" fill="${d[5]}"/>`;
   s+=txt(40,96,d[0],{size:54,fill:d[5],cls:"disp"})+txt(40,124,d[1],{size:16,fill:C.ink,w:700});
   s+=txt(40,160,"GRID",{size:10,fill:C.mute,cls:"mono"})+txt(40,180,d[2],{size:15})+txt(300,160,"REACH",{size:10,fill:C.mute,cls:"mono"})+txt(300,180,d[3],{size:15})+txt(40,226,d[4],{size:13,fill:C.mute});
@@ -768,7 +769,7 @@ function rtScreen(init,hl){
   s+=txt(X,50,`${initLab(init)} ${dayLab(init)} runs`,{size:17,cls:"disp",fill:"#ffd23f"})+txt(X,66,`${r0?r0.lead:"?"} h before ${CASE.target_label} · low at that time`,{size:10,fill:C.mute,cls:"mono"});
   ["gfs","ifs","aifs","nam"].forEach((m,k)=>{ const r=runR(m,init), y=92+k*34, on=!hl||m===hl;
     s+=`<rect x="${X}" y="${y-14}" width="${742-X}" height="28" rx="5" fill="${m===hl?"#1d2650":"#111733"}" stroke="${m===hl?RC[m]:"none"}"/>`+`<line x1="${X+8}" y1="${y}" x2="${X+28}" y2="${y}" stroke="${RC[m]}" stroke-width="3"/>`+txt(X+34,y+4,RN[m],{size:12,w:700,fill:on?C.ink:C.mute});
-    if(!r||!r.at){ s+=txt(X+140,y+4,m==="nam"?"not in range yet (84 h max)":"sat this one out",{size:10.5,fill:C.mute,cls:"mono"}); return; }
+    if(!r||!r.at){ s+=txt(X+140,y+4,(CASE.absent&&CASE.absent[m])||(m==="nam"?"not in range yet (84 h max)":"sat this one out"),{size:10.5,fill:C.mute,cls:"mono"}); return; }
     const miss=missOf(r);
     s+=txt(X+140,y+4,miss!=null?`${miss} km`:"–",{size:13,w:900,fill:miss!=null?bandCol(miss):C.mute,cls:"mono"})+txt(X+212,y+4,isVer()&&r.dp!=null?`${r.dp>0?"+":""}${r.dp.toFixed(0)} mb`:`${Math.round(r.at[2])} mb`,{size:11,fill:C.ink,cls:"mono"})+txt(X+282,y+4,`deepest ${Math.round(r.minp)}`,{size:10,fill:C.mute,cls:"mono"}); });
   s+=txt(X,236,isVer()?"km = miss vs the real low (★) · mb vs real":"km = distance from consensus (◇) · mb at that time",{size:9.5,fill:C.mute,cls:"mono"});
@@ -891,6 +892,45 @@ function matrixScreen(){
 function lessonScreen(){ const L=CASE&&CASE.lessons?CASE.lessons:["A model that holds a solution run after run earns weight.","The consensus is a starting point, not a verdict.","Check the 500 mb pattern, not just the surface L.","Watch the NAM's totals when the air is cold.","Check the ensembles before you pick a winner."]; let s=`<rect width="756" height="276" fill="${C.sea}"/>`+txt(40,56,"WHAT THE JUDGES LEARNED",{size:22,cls:"disp",fill:"#ffd23f"}); L.forEach((l,i)=>{ s+=`<circle cx="48" cy="${86+i*32}" r="5" fill="#ffd23f"/>`+txt(66,91+i*32,l,{size:15}); }); return s; }
 function titleScreen(){ let [s,P]=realBase(); const X=rightX(P); s+=txt(X,70,"WEATHERBOTS",{size:30,cls:"disp",fill:"#ffd23f"})+wrapText(CASE.name,26).map((l,k)=>txt(X,98+k*20,l,{size:16,cls:"disp",fill:C.ink})).join("")+txt(X,150,`target ${CASE.target_label}`,{size:11,fill:C.mute,cls:"mono"})+txt(X,168,`${CASE.inits.length} cycles scored · ${CASE.status}`,{size:11,fill:C.mute,cls:"mono"}); return s; }
 
+/* ---------- MOS screens (archived storms where only point guidance survives) ---------- */
+const Q12LAB=["none",".01–.09",".10–.24",".25–.49",".50–.99","1.00–1.99","2.00+"];
+const SNWLAB={0:"none",1:"T–2\"",2:"2–4\"",4:"4–6\"",6:"6–8\"",8:"8\"+"};
+const q12cat=v=>v<0.01?0:v<0.1?1:v<0.25?2:v<0.5?3:v<1?4:v<2?5:6;
+const MOSNAME={GFS:"GFS MOS (MAV)",NAM:"NAM MOS (MET)"};
+const stName=id=>(CASE.st[id]&&CASE.st[id].n)||id;
+function mosScreen(spec){
+  const [sid,m,run]=spec.split("|"); const rows=((CASE.mos||{})[sid]||{})[m]?.[run]||[]; const obs=(CASE.mos_obs12||{})[sid]||{};
+  let s=`<rect width="756" height="276" fill="#06110a"/>`;
+  const d=isoDate(run);
+  s+=txt(20,48,`${sid}   ${MOSNAME[m]} GUIDANCE   ${d.getUTCMonth()+1}/${d.getUTCDate()}/${d.getUTCFullYear()}  ${run.slice(11,13)}00 UTC`,{size:13,fill:"#8fe8a8",cls:"mono",w:600})+txt(736,48,stName(sid),{size:12,fill:"#5fb878",cls:"mono",anchor:"end"});
+  const cols=rows.filter(r=>/(00|06|12|18)$/.test(r.t)).slice(0,12); const X0=96, cw=Math.min(52,Math.floor(630/Math.max(1,cols.length)));
+  const lab=["DT/HR","TMP","WSP","TYP","Q12","SNW","OBS"]; lab.forEach((l,k)=>{ s+=txt(20,76+k*24,l,{size:12,fill:k===4||k===5?"#ffd23f":k===6?"#ffffff":"#8fe8a8",cls:"mono",w:600}); });
+  cols.forEach((r,i)=>{ const x=X0+i*cw+cw/2; const key=`${r.t.slice(0,2)}/${r.t.slice(2)}Z`;
+    s+=txt(x,76,`${r.t.slice(0,2)}/${r.t.slice(2)}`,{size:11,anchor:"middle",fill:"#8fe8a8",cls:"mono"})+txt(x,100,r.tmp??"",{size:12,anchor:"middle",fill:"#cfeedd",cls:"mono"})+txt(x,124,r.wsp??"",{size:12,anchor:"middle",fill:"#cfeedd",cls:"mono"})+txt(x,148,r.typ||"",{size:12,anchor:"middle",fill:r.typ==="S"?"#ffffff":r.typ==="Z"?"#ff9a8a":"#9fd3ff",cls:"mono",w:700});
+    if(r.q12!=null) s+=txt(x,172,r.q12,{size:14,anchor:"middle",fill:"#ffd23f",cls:"mono",w:900});
+    if(r.snw!=null) s+=txt(x,196,r.snw,{size:14,anchor:"middle",fill:"#ffd23f",cls:"mono",w:900});
+    if(r.q12!=null&&obs[key]!=null) s+=txt(x,220,q12cat(obs[key]),{size:14,anchor:"middle",fill:"#ffffff",cls:"mono",w:900}); });
+  s+=txt(20,246,"Q12 12-h liquid: 1 .01–.09  2 .10–.24  3 .25–.49  4 .50–.99  5 1–1.99  6 2+   SNW 24-h snow: 2 2–4\"  4 4–6\"  6 6–8\"  8 8\"+   OBS = Stage IV category",{size:9.5,fill:"#5fb878",cls:"mono"});
+  return s;
+}
+function mostabScreen(spec){
+  const [sid,m]=spec.split("|"); const runs=((CASE.mos||{})[sid]||{})[m]||{}; const obs=(CASE.mos_obs12||{})[sid]||{};
+  const periods=["14/00Z","14/12Z","15/00Z","15/12Z","16/00Z","16/12Z"]; const keys=Object.keys(runs).sort().filter(k=>runs[k].some(r=>r.q12!=null&&periods.includes(`${r.t.slice(0,2)}/${r.t.slice(2)}Z`)));
+  const x0=190, cw=84, y0=60, ch=Math.min(19,Math.floor(184/(keys.length+1))-3); let s=`<rect width="756" height="276" fill="${C.sea}"/>`;
+  s+=txt(20,38,`${MOSNAME[m]} · ${stName(sid)} · 12-h liquid category by run`,{size:13,w:900,fill:m==="GFS"?RC.gfs:RC.nam});
+  periods.forEach((p,j)=>{ s+=txt(x0+j*cw+cw/2,y0-6,`ending ${p}`,{size:9,anchor:"middle",fill:C.mute,cls:"mono"}); });
+  keys.forEach((k,i)=>{ const y=y0+i*(ch+3); s+=txt(x0-10,y+ch-5,`${initLab(k)} ${dayLab(k)}`,{size:10.5,anchor:"end",cls:"mono"});
+    periods.forEach((p,j)=>{ const r=runs[k].find(r=>`${r.t.slice(0,2)}/${r.t.slice(2)}Z`===p); const x=x0+j*cw;
+      if(!r||r.q12==null){ s+=`<rect x="${x+2}" y="${y}" width="${cw-4}" height="${ch}" rx="3" fill="none" stroke="#26305a" stroke-dasharray="2 3"/>`; return; }
+      const o=obs[p]!=null?q12cat(obs[p]):null, dd=o==null?0:r.q12-o;
+      const col=dd===0?"#2e9e6b":dd===1?"#3f6fb5":dd>=2?"#2747a8":dd===-1?"#c98a2a":"#b5502a";
+      s+=`<rect x="${x+2}" y="${y}" width="${cw-4}" height="${ch}" rx="3" fill="${col}"/>`+txt(x+cw/2,y+ch-5,`${r.q12}  ${Q12LAB[r.q12]}`,{size:9.5,anchor:"middle",fill:"#fff",cls:"mono",w:700}); }); });
+  const yo=y0+keys.length*(ch+3)+2; s+=txt(x0-10,yo+ch-5,"Observed (Stage IV)",{size:10.5,anchor:"end",w:900,fill:"#fff"});
+  periods.forEach((p,j)=>{ if(obs[p]==null) return; const x=x0+j*cw; s+=`<rect x="${x+2}" y="${yo}" width="${cw-4}" height="${ch}" rx="3" fill="#ffffff"/>`+txt(x+cw/2,yo+ch-5,`${q12cat(obs[p])}  ${obs[p].toFixed(2)}"`,{size:9.5,anchor:"middle",fill:"#0d1226",cls:"mono",w:900}); });
+  s+=`<rect x="20" y="250" width="10" height="10" fill="#2e9e6b"/>`+txt(34,259,"right category",{size:9,fill:C.mute,cls:"mono"})+`<rect x="130" y="250" width="10" height="10" fill="#3f6fb5"/>`+txt(144,259,"too wet",{size:9,fill:C.mute,cls:"mono"})+`<rect x="210" y="250" width="10" height="10" fill="#c98a2a"/>`+txt(224,259,"too dry",{size:9,fill:C.mute,cls:"mono"});
+  return s;
+}
+
 function renderScreen(spec){
   const parts=(spec||"title").split(":"), k=parts[0], a=parts[1]; let s="";
   switch(k){
@@ -900,6 +940,8 @@ function renderScreen(spec){
     case "err": s=errScreen(a); break;
     case "minp": s=minpScreen(a); break;
     case "trend": s=trendScreen(a); break;
+    case "mos": s=mosScreen(a); break;
+    case "mostab": s=mostabScreen(a); break;
     case "qpfr": s=qpfrScreen(a,parts[2]); break;
     case "z5": s=z5Screen(a); break;
     case "rverify": s=rverifyScreen(); break;

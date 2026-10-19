@@ -1,0 +1,309 @@
+{
+ "id": "main-event",
+ "title": "Throwback: the April 2018 Wisconsin blizzard",
+ "verdict": {
+  "title": "Decision: the forecasters",
+  "text": "Eccy found the storm about 4 days out and finished 26 to 59 km from the real low, but ran wet at Green Bay in mid-range runs. Gus's MOS shouted early and wet, and warm on precipitation type. Nammy's MOS ran dry at Green Bay, but the NAM was coldest near the ground and pushed the heavy snow farthest west, as WPC noted. The belt goes to the people at NWS Green Bay who issued the warnings."
+ },
+ "lines": [
+  {
+   "round": "Pre-fight",
+   "who": "ref",
+   "screen": "card:gus",
+   "cap": "Tale of the tape · GFS, April 2018 edition",
+   "text": "Welcome to a Weatherbots throwback, weather geeks. April 2018, northeast Wisconsin. Tonight's bout is dedicated to the forecasters at NWS Green Bay. You'll hear their words tonight, straight from the archive.",
+   "note": "Products quoted tonight are archived NWS Green Bay and WPC text products (Iowa Environmental Mesonet AFOS archive)."
+  },
+  {
+   "who": "ref",
+   "screen": "card:eccy",
+   "cap": "Tale of the tape · ECMWF IFS",
+   "text": "In this corner, Eccy the Euro, whose 2018 runs survive in full in Google's WeatherBench archive. Every map you see tonight is a real Eccy run.",
+   "note": "ECMWF HRES 0.25° forecasts, 00z and 12z, from WeatherBench 2. Verified against ERA5, Stage IV and NWS climate reports."
+  },
+  {
+   "who": "gus",
+   "screen": "card:gus",
+   "cap": "Tale of the tape · GFS",
+   "text": "And Big Gus, whose 2018 maps... are not in any archive this show can reach. Typical. Luckily my MOS bulletins survived, and MOS doesn't lie.",
+   "note": "2018 GFS and NAM grids weren't reachable from this workspace. Their MOS bulletins (MAV and MET) for Green Bay, Rhinelander and Wausau are archived by the Iowa Environmental Mesonet."
+  },
+  {
+   "who": "nammy",
+   "screen": "card:nammy",
+   "cap": "Tale of the tape · NAM",
+   "text": "Same for me! MOS only! Also I can only see 84 hours, so I'll be late. As usual."
+  },
+  {
+   "who": "eccy",
+   "text": "And my little brother, the AIFS, won't be born for years. He sends his regards from the future."
+  },
+  {
+   "round": "Round 1 · Sat Apr 7 – Sun Apr 8 · a week out",
+   "who": "ref",
+   "screen": "quote:0",
+   "cap": "NWS Green Bay AFD · long term, RDM · 2:50 PM CDT Sat Apr 7, 2018",
+   "text": "Round one. Saturday, April 7th. Green Bay's long-term discussion, signed R D M: 'The models have some differences in the rack of the system.' Sic. We know what you meant.",
+   "note": "Verbatim from the long-term section signed RDM. 'Rack' is in the original; long-term discussions get written in a hurry."
+  },
+  {
+   "who": "eccy",
+   "screen": "rt:2018-04-07T12Z:ifs",
+   "cap": "ECMWF 12z Sat Apr 7 · 168 h before 12z Sat Apr 14",
+   "text": "Differences in the rack, indeed. My 12z run that day had a 978 millibar storm. I simply placed it in South Dakota. 637 kilometers from where it ended up.",
+   "note": "ECMWF 12z Apr 7: low near 44.2°N 97.9°W at 12z Apr 14, 637 km from the analyzed low; deepest 977.7 mb."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:1",
+   "cap": "NWS Green Bay AFD · long term, RDM · 3:07 PM CDT Sun Apr 8, 2018",
+   "text": "Sunday the 8th, same forecaster: 'If it moves further north we could have temperatures in the 50s in some areas.' A week out, this storm looked like snowmelt and rising rivers.",
+   "note": "The same discussions warned of rivers rising from snowmelt and rain later in the week."
+  },
+  {
+   "who": "eccy",
+   "screen": "rt:2018-04-08T12Z:ifs",
+   "cap": "ECMWF 12z Sun Apr 8 · 144 h out",
+   "text": "My 12z run on the 8th took the low to the Wisconsin–Illinois line. Warm sector for Green Bay. 469 kilometers off. Some days you're the windshield.",
+   "note": "ECMWF 12z Apr 8: low near 42.6°N 87.9°W, 469 km from the real low; only 1.26 in of liquid at Green Bay."
+  },
+  {
+   "who": "gus",
+   "screen": "quote:2",
+   "cap": "WPC Extended Forecast Discussion · 12:00 PM EDT Sun Apr 8, 2018",
+   "text": "WPC that Sunday: 'The GFS has trended weaker and faster in the last few runs.' Faster is my love language.",
+   "note": "Verbatim, WPC Extended Forecast Discussion, 12:00 PM EDT Apr 8, 2018."
+  },
+  {
+   "round": "Round 2 · Mon Apr 9 – Wed Apr 11 · slow or fast?",
+   "who": "ref",
+   "screen": "quote:3",
+   "cap": "WPC Heavy Snow Discussion · 3:57 PM EDT Mon Apr 9, 2018",
+   "text": "Round two. Monday, WPC split the difference: snowfall axis 'north of the GFS and a bit south of the ECMWF.'",
+   "note": "Verbatim, WPC Heavy Snow & Icing Discussion, 3:57 PM EDT Apr 9, 2018."
+  },
+  {
+   "who": "eccy",
+   "screen": "z5:ifs|2018-04-08T12Z,ifs|2018-04-09T12Z",
+   "cap": "500 mb at 12z Sat Apr 14 · ECMWF 12z Apr 8 and 12z Apr 9 vs ERA5",
+   "text": "Then upstairs, I fixed myself. My 12z run on the 9th put the 500 millibar closed low at 539.8 decameters. The real one was 539.8. Zero error, 120 hours out.",
+   "note": "ECMWF 12z Apr 9: 500 mb closed-low center 539.8 dam at 12z Apr 14; ERA5 539.8 dam."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:4",
+   "cap": "WPC Heavy Snow Discussion · 4:25 PM EDT Tue Apr 10, 2018",
+   "text": "Tuesday: 'Overall WPC favored the slower guidance, ECMWF and UKMET, rather than the slightly more progressive solutions, GFS and NAM.'",
+   "note": "Verbatim, WPC Heavy Snow & Icing Discussion, 4:25 PM EDT Apr 10, 2018. The cutoff low did crawl."
+  },
+  {
+   "who": "gus",
+   "text": "Progressive is a compliment."
+  },
+  {
+   "who": "eccy",
+   "screen": "rt:2018-04-10T12Z:ifs",
+   "cap": "ECMWF 12z Tue Apr 10 · 96 h out",
+   "text": "Not with a cutoff low, Gus. And my 12z run that Tuesday? 44 kilometers from the real low. Four days out.",
+   "note": "ECMWF 12z Apr 10: 44 km from the analyzed low at 12z Apr 14."
+  },
+  {
+   "who": "gus",
+   "screen": "mos:KGRB|GFS|2018-04-11T12Z",
+   "cap": "GFS MOS (MAV) · Green Bay · 12z Wed Apr 11, 2018",
+   "text": "Fine. My MOS, 12z Wednesday, Green Bay: category 5 and category 5. An inch to two inches of liquid, twice. I smelled it coming.",
+   "note": "MAV Q12 category 5 = 1.00–1.99 in, for the 12 h periods ending 00z and 12z Apr 14."
+  },
+  {
+   "who": "ref",
+   "screen": "mostab:KGRB|GFS",
+   "cap": "GFS MOS · Green Bay · 12-h liquid category by run vs Stage IV",
+   "text": "Green Bay measured 0.59 and 0.88 inches in those periods. Category 4 both times. Close, Gus, but one box too wet.",
+   "note": "Stage IV 12 h liquid at Green Bay: 0.59 in ending 00z Apr 14 and 0.88 in ending 12z Apr 14."
+  },
+  {
+   "who": "nammy",
+   "screen": "mos:KGRB|NAM|2018-04-11T12Z",
+   "cap": "NAM MOS (MET) · Green Bay · 12z Wed Apr 11, 2018",
+   "text": "I'M HERE! 84 hours! Green Bay: category 3, then category 2!",
+   "note": "MET Q12: category 3 (0.25–0.49 in) ending 00z Apr 14, category 2 (0.10–0.24 in) ending 12z Apr 14."
+  },
+  {
+   "who": "gus",
+   "text": "Kid, you're drier than the Euro. Are you feeling okay?"
+  },
+  {
+   "who": "nammy",
+   "screen": "mostab:KGRB|NAM",
+   "cap": "NAM MOS · Green Bay · 12-h liquid category by run vs Stage IV",
+   "text": "I'm saving it for later! Look, by 00z Friday I had category 4 for Sunday evening!",
+   "note": "MET 00z Apr 13: category 4 for the 12 h ending 00z Apr 16; Stage IV measured 0.54 in (category 4)."
+  },
+  {
+   "who": "eccy",
+   "screen": "qpfr:ifs|2018-04-11T00Z:KGRB",
+   "cap": "ECMWF 00z Wed Apr 11 · storm-total liquid vs Stage IV",
+   "text": "Meanwhile my 00z Wednesday run gave Green Bay 3.98 inches. Stage IV measured 3.05. Yes, I was wet. In April. Write it down, it may never happen again.",
+   "note": "ECMWF 00z Apr 11 storm-total liquid at Green Bay (12z Apr 13 to 12z Apr 16): 3.98 in; Stage IV 3.05 in. The NWS gauge recorded 3.76 in over Apr 13–16."
+  },
+  {
+   "round": "Round 3 · Thu Apr 12 – Fri Apr 13 · rain, ice or snow?",
+   "who": "ref",
+   "screen": "mos:KGRB|GFS|2018-04-12T12Z",
+   "cap": "GFS MOS (MAV) · Green Bay · 12z Thu Apr 12, 2018",
+   "text": "Round three. The precipitation type. Gus's 12z Thursday MOS at Green Bay: rain, rain, rain, then freezing rain, then snow.",
+   "note": "MAV TYP at Green Bay from the 12z Apr 12 run: R through Friday night, then Z, then S."
+  },
+  {
+   "who": "nammy",
+   "screen": "quote:6",
+   "cap": "WPC Heavy Snow Discussion · 5:33 PM EDT Fri Apr 13, 2018",
+   "text": "And WPC said I was the coldest! 'The NAM was coldest in the near surface layer, with the GFS warmest.' Coldest! Me!",
+   "note": "Verbatim, WPC Heavy Snow & Icing Discussion, 5:33 PM EDT Apr 13, 2018. WPC added that the NAM is typically best with shallow cold air near the surface, but still blended the thermal forecasts."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:5",
+   "cap": "WPC Heavy Snow Discussion · 4:19 AM EDT Fri Apr 13, 2018",
+   "text": "And Friday morning: 'more weighting was given to the colder SREF, NAM, ECMWF forecasts.'",
+   "note": "Verbatim, WPC Heavy Snow & Icing Discussion, 4:19 AM EDT Apr 13, 2018."
+  },
+  {
+   "who": "gus",
+   "text": "I was trending colder! It says so right there!"
+  },
+  {
+   "who": "ref",
+   "screen": "quote:8",
+   "cap": "NWS Green Bay AFD · 3:30 PM CDT Sat Apr 14, 2018",
+   "text": "Here's what phase one actually did: 'a 60 mile wide band of heavy snow' from Wausau to Green Bay and Kewaunee. 6 to 18 inches, with sleet mixed in.",
+   "note": "Verbatim, NWS Green Bay AFD, 3:30 PM CDT Apr 14. The office newsletter later described 12 to 18 inches of heavy, wet snow and copious sleet in phase one, then a 6-hour lull."
+  },
+  {
+   "who": "eccy",
+   "screen": "quote:7",
+   "cap": "WPC Heavy Snow Discussion · 4:19 AM EDT Fri Apr 13, 2018",
+   "text": "And for Sunday, WPC said the GFS did not extend the snow axis as far west as 'the NAM, ECMWF, SREF mean.' Rhinelander would like a word, Gus.",
+   "note": "Verbatim, WPC, 4:19 AM EDT Apr 13. Rhinelander got 0.8 in on Saturday and 16.6 in on Sunday."
+  },
+  {
+   "round": "Round 4 · Sat Apr 14 · the warning",
+   "who": "ref",
+   "screen": "mos:KGRB|GFS|2018-04-13T12Z",
+   "cap": "GFS MOS (MAV) · Green Bay · 12z Fri Apr 13, 2018",
+   "text": "Round four. By Friday, Gus's MOS had Green Bay's 24-hour snow in category 8. That's the top box: 8 inches or more.",
+   "note": "MAV SNW category 8 = 8 in or more in 24 h, for the 24 h ending 12z Apr 15."
+  },
+  {
+   "who": "gus",
+   "text": "Top box! You can't go higher than the top box!"
+  },
+  {
+   "who": "nammy",
+   "screen": "mos:KGRB|NAM|2018-04-13T12Z",
+   "cap": "NAM MOS (MET) · Green Bay · 12z Fri Apr 13, 2018",
+   "text": "Me too! Category 8! Both of us! Teamwork!",
+   "note": "MET SNW category 8 for the 24 h ending 12z Apr 15 in the 00z and 12z Apr 13 runs."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:9",
+   "cap": "NWS Green Bay · Blizzard Warning · 5:40 PM CDT Sat Apr 14, 2018",
+   "text": "Saturday, 5:40 PM. NWS Green Bay issues a Blizzard Warning: 'Winds gusting as high as 50 mph will cause whiteout conditions in blowing snow. Additional snow accumulations of 8 to 15 inches are expected.'",
+   "note": "Verbatim from the Winter Weather Message issued 5:40 PM CDT Apr 14, 2018."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:10",
+   "cap": "NWS Green Bay AFD · update, RDM · 5:52 PM CDT Sat Apr 14, 2018",
+   "text": "Twelve minutes later, the discussion signed R D M: 'decided to issue a blizzard warning for Door, Kewaunee, Brown, Outagamie, Southern Marinette and Southern Oconto counties.'",
+   "note": "Verbatim, NWS Green Bay AFD update, 5:52 PM CDT Apr 14, 2018."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:11",
+   "cap": "NWS Green Bay AFD · update, RDM · 5:52 PM CDT Sat Apr 14, 2018",
+   "text": "'925mb winds are forecast to be near 50 knots later tonight through at least noon Sunday.'",
+   "note": "Verbatim, same update."
+  },
+  {
+   "who": "ref",
+   "screen": "quote:12",
+   "cap": "NWS Green Bay AFD · update, RDM · 5:52 PM CDT Sat Apr 14, 2018",
+   "text": "And: 'Think that roads could become impassable in some of the blizzard warning areas.' They did.",
+   "note": "The office later reported roads impassable at times, drifts nearly 10 feet tall in Oconto Falls, and waves of 10 to 16 feet on Lake Michigan."
+  },
+  {
+   "who": "eccy",
+   "text": "A human with a hunch about 925 millibar winds. I respect that."
+  },
+  {
+   "who": "gus",
+   "text": "Me too. Don't tell anyone."
+  },
+  {
+   "round": "Round 5 · Sun Apr 15 – Mon Apr 16 · verification",
+   "who": "ref",
+   "screen": "rverify",
+   "cap": "ERA5 low track and NWS climate-report snowfall",
+   "text": "Final round. The verification. Green Bay: 24.2 inches. Second-largest snowstorm on record, behind 29.0 inches in March 1888. Marquette, 23.6. Wausau, 20.7. Rhinelander, 18.4.",
+   "note": "NWS climate reports, Apr 13–16, 2018. WPC's top total: 33 in at Amherst, WI. Appleton's 21.2 in was its largest snowstorm on record."
+  },
+  {
+   "who": "ref",
+   "screen": "rverify",
+   "text": "And the low itself? 999 millibars near the Iowa–Missouri line at 12z Saturday, filling as it crawled east. The heavy snow fell well north of it, under a jet near 130 knots.",
+   "note": "ERA5 at 12z Apr 14: 999.1 mb near 40.2°N 92.5°W; deepest 985 mb over Colorado and Kansas on Apr 13. The 130 kt jet is from the NWS Green Bay newsletter."
+  },
+  {
+   "who": "gus",
+   "screen": "mos:KGRB|GFS|2018-04-14T00Z",
+   "cap": "GFS MOS (MAV) · Green Bay · 00z Sat Apr 14, 2018",
+   "text": "Final check on my MOS. Category 8 snow, and Green Bay got 24 inches. My top box was right. It just wasn't big enough.",
+   "note": "MAV SNW category 8 = 8 in or more in 24 h. Green Bay measured 24.2 in over Apr 13–16."
+  },
+  {
+   "who": "eccy",
+   "screen": "band:0",
+   "cap": "ECMWF scorecard · days 5–7",
+   "text": "My scorecard. Days 5 to 7: 341 kilometers average miss. I'll take the fifth.",
+   "note": "ECMWF mean track miss at 12z Apr 14, runs 96–156 h out (7 runs): 341 km."
+  },
+  {
+   "who": "eccy",
+   "screen": "band:2",
+   "cap": "ECMWF scorecard · final 48 hours",
+   "text": "Final 48 hours: 41 kilometers, and the liquid error came down to 0.36 inches. My 12z Thursday run was 26 kilometers from the real low.",
+   "note": "ECMWF final 48 h (3 runs): 41 km mean miss, 0.36 in mean absolute liquid error across 10 stations. 12z Apr 12: 26 km."
+  },
+  {
+   "who": "nammy",
+   "screen": "mostab:KGRB|NAM",
+   "cap": "NAM MOS · Green Bay · 12-h liquid category by run vs Stage IV",
+   "text": "My MOS was too dry at Green Bay. But I was cold, and I put the snow out west by Rhinelander. That counts, right?"
+  },
+  {
+   "who": "ref",
+   "text": "It counts, kid."
+  },
+  {
+   "round": "Decision",
+   "who": "ref",
+   "screen": "trend:ifs",
+   "cap": "Every ECMWF run · where it put the low at 12z Sat Apr 14",
+   "text": "Judges' decision. Eccy found it about four days out and stayed close. Gus shouted early, wet and warm. Nammy was dry at Green Bay but cold and west.",
+   "note": "Numbered dots are ECMWF runs in order, from 12z Apr 7 to 12z Apr 13; the star is the ERA5 low."
+  },
+  {
+   "who": "ref",
+   "screen": "lesson",
+   "cap": "What April 2018 taught the judges",
+   "text": "But the belt goes to the people who turned all of this into a warning on a Saturday evening in April. To NWS Green Bay, and to R D M. Good night, and stay off the roads.",
+   "note": "Bout written from archived data and products; the forecaster quoted as RDM contributed context to this bout."
+  }
+ ],
+ "init": null,
+ "mode": "hand",
+ "storm": "2018-04-14-upper-midwest",
+ "written": "2026-10-19T21:21Z"
+}

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-08T01Z",
+ "updated": "2026-10-19T21Z",
  "storms": [
   {
    "id": "2026-02-23-northeast",
@@ -11,6 +11,21 @@
     {
      "id": "main-event",
      "title": "Main event: the full run-up and verification",
+     "init": null,
+     "mode": "hand"
+    }
+   ]
+  },
+  {
+   "id": "2018-04-14-upper-midwest",
+   "name": "April 2018 Upper Midwest Blizzard",
+   "status": "verified",
+   "target": "2018-04-14T12Z",
+   "region": "Upper Midwest",
+   "bouts": [
+    {
+     "id": "main-event",
+     "title": "Throwback: the April 2018 Wisconsin blizzard",
      "init": null,
      "mode": "hand"
     }

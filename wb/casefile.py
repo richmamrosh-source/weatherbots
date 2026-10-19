@@ -2,7 +2,7 @@
 import datetime as dt
 import os
 
-from .common import STORMS, write_json, parse_iso, hav, bearing_word
+from .common import STORMS, write_json, read_json, parse_iso, hav, bearing_word
 from .cities import BY_ID, CITIES
 from .cycle import grid_spec
 
@@ -71,5 +71,9 @@ def build(state):
         grids=grids,
         lessons=state.get("lessons"),
     )
+    prev = read_json(os.path.join(STORMS, state["id"], "case.json"), {}) or {}
+    for k in ("mos", "mos_obs12", "absent", "cards"):  # hand-curated extras for archived storms
+        if k in prev:
+            case[k] = prev[k]
     write_json(os.path.join(STORMS, state["id"], "case.json"), case, compact=True)
     return case
