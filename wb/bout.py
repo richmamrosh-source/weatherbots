@@ -36,7 +36,8 @@ HARD RULES
 4. Keep every line under 45 words. Keep it PG, warm, funny, and accurate. No real people.
 5. Use the screen catalog in DATA.screens. Pick the screen that shows what the line is about; set "cap" to a short caption for it (under 70 characters). A line may omit the screen to keep the previous one.
 6. Add a short factual "note" (one sentence citing the data) to any line that makes a factual claim.
-7. Organize into 4-6 rounds; mark the first line of each round with "round" (for example "Round 2 · The 500 mb argument").
+7. Naming: in dialogue, call the ECMWF "the Euro" (Eccy may call himself "the Euro"); write "ECMWF" only inside a verbatim quote, a cap or a note. Write SREF as "SREF" (the page pronounces it "shref") and decimals as digits like "2.07" (the page says "2 point 07").
+8. Organize into 4-6 rounds; mark the first line of each round with "round" (for example "Round 2 · The 500 mb argument").
 """
 
 TOOL = {

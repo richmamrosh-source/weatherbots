@@ -1033,7 +1033,16 @@ if(hasSpeech){ loadVoices(); if(typeof synth.onvoiceschanged!=="undefined") synt
 else { buildVoiceGrid(); voicesOn.checked=false; voicesOn.disabled=true; notice.hidden=false; notice.textContent="This browser has no speech engine, so the bout runs in read-along mode."; }
 
 // Speak text as a chain of short sentences (long single utterances get cut off in some browsers).
+// Spoken form: "2.07" -> "2 point 07" (the sentence splitter would otherwise pause at the dot),
+// ECMWF -> "Euro", SREF -> "shref". On-screen text is unchanged.
+function sayable(t){
+  return String(t)
+    .replace(/\bECMWF(?:\s+IFS|\s+HRES)?\b/g,"Euro")
+    .replace(/\bSREF\b/g,"shref")
+    .replace(/(^|[^\d.])(\d*)\.(\d+)(?!\d|\.\d)/g,(m,pre,a,b)=>pre+((a===""||a==="0")?"point ":a+" point ")+b);
+}
 function speakText(text, key, token, done){
+  text = sayable(text);
   const parts = text.match(/[^.!?…]+[.!?…]+["'’”]?\s*|[^.!?…]+$/g) || [text];
   const p = picked[key] || {pitch:1,rate:1,voice:null};
   let i=0, finished=false;

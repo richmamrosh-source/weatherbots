@@ -42,9 +42,9 @@
    "round": "Round 1 · Sat Apr 7 – Sun Apr 8 · a week out",
    "who": "ref",
    "screen": "quote:0",
-   "cap": "NWS Green Bay AFD · long term, RDM · 2:50 PM CDT Sat Apr 7, 2018",
-   "text": "Round one. Saturday, April 7th. Green Bay's long-term discussion, signed R D M: 'The models have some differences in the rack of the system.' Sic. We know what you meant.",
-   "note": "Verbatim from the long-term section signed RDM. 'Rack' is in the original; long-term discussions get written in a hurry."
+   "cap": "NWS Green Bay AFD · long term · 2:50 PM CDT Sat Apr 7, 2018",
+   "text": "Round one. Saturday, April 7th. Green Bay's long-term discussion: 'The models have some differences in the rack of the system.' Sic. We know what you meant.",
+   "note": "Verbatim from the long-term section. 'Rack' is in the original; long-term discussions get written in a hurry."
   },
   {
    "who": "eccy",
@@ -56,8 +56,8 @@
   {
    "who": "ref",
    "screen": "quote:1",
-   "cap": "NWS Green Bay AFD · long term, RDM · 3:07 PM CDT Sun Apr 8, 2018",
-   "text": "Sunday the 8th, same forecaster: 'If it moves further north we could have temperatures in the 50s in some areas.' A week out, this storm looked like snowmelt and rising rivers.",
+   "cap": "NWS Green Bay AFD · long term · 3:07 PM CDT Sun Apr 8, 2018",
+   "text": "Sunday the 8th, same office: 'If it moves further north we could have temperatures in the 50s in some areas.' A week out, this storm looked like snowmelt and rising rivers.",
    "note": "The same discussions warned of rivers rising from snowmelt and rain later in the week."
   },
   {
@@ -215,21 +215,21 @@
   {
    "who": "ref",
    "screen": "quote:10",
-   "cap": "NWS Green Bay AFD · update, RDM · 5:52 PM CDT Sat Apr 14, 2018",
-   "text": "Twelve minutes later, the discussion signed R D M: 'decided to issue a blizzard warning for Door, Kewaunee, Brown, Outagamie, Southern Marinette and Southern Oconto counties.'",
+   "cap": "NWS Green Bay AFD · update · 5:52 PM CDT Sat Apr 14, 2018",
+   "text": "Twelve minutes later, the discussion update explained: 'decided to issue a blizzard warning for Door, Kewaunee, Brown, Outagamie, Southern Marinette and Southern Oconto counties.'",
    "note": "Verbatim, NWS Green Bay AFD update, 5:52 PM CDT Apr 14, 2018."
   },
   {
    "who": "ref",
    "screen": "quote:11",
-   "cap": "NWS Green Bay AFD · update, RDM · 5:52 PM CDT Sat Apr 14, 2018",
+   "cap": "NWS Green Bay AFD · update · 5:52 PM CDT Sat Apr 14, 2018",
    "text": "'925mb winds are forecast to be near 50 knots later tonight through at least noon Sunday.'",
    "note": "Verbatim, same update."
   },
   {
    "who": "ref",
    "screen": "quote:12",
-   "cap": "NWS Green Bay AFD · update, RDM · 5:52 PM CDT Sat Apr 14, 2018",
+   "cap": "NWS Green Bay AFD · update · 5:52 PM CDT Sat Apr 14, 2018",
    "text": "And: 'Think that roads could become impassable in some of the blizzard warning areas.' They did.",
    "note": "The office later reported roads impassable at times, drifts nearly 10 feet tall in Oconto Falls, and waves of 10 to 16 feet on Lake Michigan."
   },
@@ -298,8 +298,8 @@
    "who": "ref",
    "screen": "lesson",
    "cap": "What April 2018 taught the judges",
-   "text": "But the belt goes to the people who turned all of this into a warning on a Saturday evening in April. To NWS Green Bay, and to R D M. Good night, and stay off the roads.",
-   "note": "Bout written from archived data and products; the forecaster quoted as RDM contributed context to this bout."
+   "text": "But the belt goes to the people who turned all of this into a warning on a Saturday evening in April. To everyone at NWS Green Bay. Good night, and stay off the roads.",
+   "note": "Bout written from archived NWS and WPC products and data."
   }
  ],
  "init": null,
