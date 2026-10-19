@@ -1036,11 +1036,13 @@ else { buildVoiceGrid(); voicesOn.checked=false; voicesOn.disabled=true; notice.
 
 // Speak text as a chain of short sentences (long single utterances get cut off in some browsers).
 // Spoken form: "2.07" -> "2 point 07" (the sentence splitter would otherwise pause at the dot),
-// ECMWF -> "Euro", SREF -> "shref". On-screen text is unchanged.
+// ECMWF -> "Euro", SREF -> "shref", MOS -> "moss", UKMET -> "you kay met". On-screen text is unchanged.
 function sayable(t){
   return String(t)
     .replace(/\bECMWF(?:\s+IFS|\s+HRES)?\b/g,"Euro")
     .replace(/\bSREF\b/g,"shref")
+    .replace(/\bMOS\b/g,"moss")
+    .replace(/\bUKMET\b/g,"you kay met")
     .replace(/(^|[^\d.])(\d*)\.(\d+)(?!\d|\.\d)/g,(m,pre,a,b)=>pre+((a===""||a==="0")?"point ":a+" point ")+b);
 }
 function speakText(text, key, token, done){
