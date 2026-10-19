@@ -1036,13 +1036,19 @@ else { buildVoiceGrid(); voicesOn.checked=false; voicesOn.disabled=true; notice.
 
 // Speak text as a chain of short sentences (long single utterances get cut off in some browsers).
 // Spoken form: "2.07" -> "2 point 07" (the sentence splitter would otherwise pause at the dot),
-// ECMWF -> "Euro", SREF -> "shref", MOS -> "moss", UKMET -> "you kay met". On-screen text is unchanged.
+// ECMWF -> "Euro", SREF -> "shref", MOS -> "moss", UKMET -> "you kay met", mb -> "millibars". On-screen text is unchanged.
 function sayable(t){
   return String(t)
     .replace(/\bECMWF(?:\s+IFS|\s+HRES)?\b/g,"Euro")
     .replace(/\bSREF\b/g,"shref")
     .replace(/\bMOS\b/g,"moss")
     .replace(/\bUKMET\b/g,"you kay met")
+    .replace(/(\d?)\s*\bmb\b|(\d)mb\b/gi,(m,d1,d2,off,str)=>{
+      // "a 978 millibar low", "500 millibar heights" (used as an adjective); "deepened 21 millibars" otherwise
+      const d=(d1||d2||""), next=(str.slice(off+m.length).match(/^\s+([A-Za-z]+)/)||[])[1]||"";
+      const plain=/^(and|or|to|at|in|on|by|of|off|from|with|than|vs|versus|too|deeper|lower|higher|weaker|stronger|below|above|apart|over|under|for|is|was|were|the|a|an|it|but|as)$/i;
+      const pre=(str.slice(0,off)+d).trimEnd(), sing=(next&&!plain.test(next))||/(^|[^\d.])1$/.test(pre);
+      return (d?d+" ":(m[0]===" "?" ":""))+(sing?"millibar":"millibars"); })
     .replace(/(^|[^\d.])(\d*)\.(\d+)(?!\d|\.\d)/g,(m,pre,a,b)=>pre+((a===""||a==="0")?"point ":a+" point ")+b);
 }
 function speakText(text, key, token, done){
