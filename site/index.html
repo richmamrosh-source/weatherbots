@@ -469,10 +469,10 @@ const CHAR = {
 };
 // Default voice tuning per bot (pitch, rate) and preferred voice names in order.
 const TUNE = {
-  ref:  {pitch:1.05, rate:1.08, prefer:["Google UK English Female","Karen","Moira","Microsoft Hazel","Microsoft Libby","Fiona","Google US English"], lang:["en-AU","en-IE","en-GB"]},
-  nammy:{pitch:1.6,  rate:1.22, prefer:["Google UK English Female","Samantha","Microsoft Zira","Microsoft Aria","Tessa","Microsoft Jenny"], lang:["en-US"]},
-  gus:  {pitch:0.78, rate:1.0,  prefer:["Google US English","Microsoft David","Microsoft Mark","Microsoft Guy","Alex","Fred","Aaron","Microsoft Christopher"], lang:["en-US"]},
-  eccy: {pitch:0.95, rate:0.9,  prefer:["Google UK English Male","Daniel","Microsoft George","Microsoft Ryan","Arthur","Oliver","Microsoft Thomas"], lang:["en-GB","en-IE"]}
+  ref:  {pitch:1.05, rate:1.2,  prefer:["Google UK English Female","Karen","Moira","Microsoft Hazel","Microsoft Libby","Fiona","Google US English"], lang:["en-AU","en-IE","en-GB"]},
+  nammy:{pitch:1.6,  rate:1.35, prefer:["Google UK English Female","Samantha","Microsoft Zira","Microsoft Aria","Tessa","Microsoft Jenny"], lang:["en-US"]},
+  gus:  {pitch:0.78, rate:1.15, prefer:["Google US English","Microsoft David","Microsoft Mark","Microsoft Guy","Alex","Fred","Aaron","Microsoft Christopher"], lang:["en-US"]},
+  eccy: {pitch:0.95, rate:1.05, prefer:["Google UK English Male","Daniel","Microsoft Ryan Online","Microsoft Thomas Online","Microsoft Oliver Online","Microsoft George","Microsoft Ryan","Arthur","Oliver","Microsoft Thomas"], lang:["en-GB","en-IE"]}
 };
 
 const BOUTS = [
@@ -1007,19 +1007,19 @@ function defaultVoice(key, taken){
 }
 function buildVoiceGrid(){
   const grid=$("voicegrid"); grid.innerHTML="";
-  const taken=new Set(); let saved={}; try{ saved=JSON.parse(localStorage.getItem("wb-voices")||"{}"); }catch(e){ saved={}; }
-  ["gus","eccy","nammy","ref"].forEach(key=>{
-    let v = saved[key] && voices.find(x=>x.name===saved[key].name); if(!v) v=defaultVoice(key,taken); if(v) taken.add(v.name);
+  const taken=new Set(); let saved={}; try{ saved=JSON.parse(localStorage.getItem("wb-voices-2")||"{}"); }catch(e){ saved={}; }
+  ["eccy","gus","nammy","ref"].forEach(key=>{
+    userSet=saved; let v = saved[key] && saved[key].name && voices.find(x=>x.name===saved[key].name); if(!v) v=defaultVoice(key,taken); if(v) taken.add(v.name);
     picked[key]={voice:v, pitch: (saved[key]&&saved[key].pitch)||TUNE[key].pitch, rate:(saved[key]&&saved[key].rate)||TUNE[key].rate};
     const lab=document.createElement("label"); lab.innerHTML="<b>"+CHAR[key].name+"</b>";
     const sel=document.createElement("select"); sel.id="voice-"+key;
     if(!voices.length){ const o=document.createElement("option"); o.textContent="No voices found"; sel.appendChild(o); sel.disabled=true; }
     voices.forEach(x=>{ const o=document.createElement("option"); o.value=x.name; o.textContent=x.name+" ("+x.lang+")"; if(v&&x.name===v.name) o.selected=true; sel.appendChild(o); });
-    sel.addEventListener("change", ()=>{ picked[key].voice=voices.find(x=>x.name===sel.value)||null; saveVoices(); });
+    sel.addEventListener("change", ()=>{ picked[key].voice=voices.find(x=>x.name===sel.value)||null; saveVoices(key,"name",sel.value); });
     const tune=document.createElement("div"); tune.className="tune";
     const p=document.createElement("input"); p.type="range"; p.min="0.5"; p.max="2"; p.step="0.05"; p.value=picked[key].pitch; p.id="pitch-"+key; p.setAttribute("aria-label","Pitch");
     const r=document.createElement("input"); r.type="range"; r.min="0.6"; r.max="1.6"; r.step="0.05"; r.value=picked[key].rate; r.id="rate-"+key; r.setAttribute("aria-label","Pace");
-    p.addEventListener("input", ()=>{ picked[key].pitch=+p.value; saveVoices(); }); r.addEventListener("input", ()=>{ picked[key].rate=+r.value; saveVoices(); });
+    p.addEventListener("input", ()=>{ picked[key].pitch=+p.value; saveVoices(key,"pitch",+p.value); }); r.addEventListener("input", ()=>{ picked[key].rate=+r.value; saveVoices(key,"rate",+r.value); });
     const pl=document.createElement("span"); pl.textContent="pitch"; const rl=document.createElement("span"); rl.textContent="pace";
     tune.append(pl,p,rl,r);
     const test=document.createElement("button"); test.type="button"; test.textContent="Test voice";
@@ -1028,7 +1028,9 @@ function buildVoiceGrid(){
     lab.append(sel,tune,test); grid.appendChild(lab);
   });
 }
-function saveVoices(){ try{ const o={}; for(const k in picked){ o[k]={name:picked[k].voice?picked[k].voice.name:null, pitch:picked[k].pitch, rate:picked[k].rate}; } localStorage.setItem("wb-voices", JSON.stringify(o)); }catch(e){} }
+// Remember only what the viewer changed, so new defaults (voices, pace) still reach everyone else.
+let userSet={};
+function saveVoices(key,field,val){ try{ (userSet[key]=userSet[key]||{})[field]=val; localStorage.setItem("wb-voices-2", JSON.stringify(userSet)); }catch(e){} }
 if(hasSpeech){ loadVoices(); if(typeof synth.onvoiceschanged!=="undefined") synth.onvoiceschanged=loadVoices; setTimeout(loadVoices, 600); }
 else { buildVoiceGrid(); voicesOn.checked=false; voicesOn.disabled=true; notice.hidden=false; notice.textContent="This browser has no speech engine, so the bout runs in read-along mode."; }
 
